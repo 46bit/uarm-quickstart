@@ -37,6 +37,8 @@ Commands must be formatted like `30 120 180 0 0` and separated by `\n` newlines.
 * Hand Rotation in degrees. Ranges from -90 to 90.
 * Gripper. Set to 1 to pick up an option, 0 to release.
 
+I suggest leaving 1-2 seconds between commands to ensure previous movements have completed.
+
 ## Future
 There's a lot of problems with the official firmware, a quick list [here](https://gist.github.com/46bit/1386cfe0932228fbe8b8). I aim to build a new firmware that resolves many of these issues, and would love contributions to this Quickstart in the meantime.
 
