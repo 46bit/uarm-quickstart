@@ -1,0 +1,57 @@
+#include <Servo.h>
+#include <EEPROM.h>
+#include <UF_uArm.h>
+#include <stdlib.h>
+
+UF_uArm uarm;
+
+void setup()
+{
+  Serial.begin(9600);
+  Serial.println("uARM ready!");
+
+  uarm.init();
+
+  // @TODO: link against a UF_uArm library with setServoSpeed exposed.
+  //uarm.setServoSpeed(uarm.SERVO_R, 80);
+  //uarm.setServoSpeed(uarm.SERVO_L, 80);
+  //uarm.setServoSpeed(uarm.SERVO_ROT, 80);
+}
+
+void loop()
+{
+  //uarm.calibration();
+
+  if (Serial.available())
+  {
+    char bufs[100];
+    int l = Serial.readBytesUntil('\n', bufs, 99);
+    Serial.println(bufs);
+
+    char *bufs2 = strdup(bufs);
+
+    int args[5] = {0};
+    int ti = 0;
+    char *token;
+    while ((token = strsep(&bufs2, " \n")) != NULL)
+    {
+    	args[ti] = atoi(token);
+    	ti++;
+    }
+
+   	// arm_rotation, arm stretch, arm height, hand rotation, gripping: input
+   	// vs
+	// arm_stretch, arm_height, arm_rotation, hand_rotation: setposition
+    uarm.setPosition(args[1], args[2], args[0], args[3]);
+
+    if (args[4])
+    {
+    	uarm.gripperCatch();
+    } else {
+    	uarm.gripperRelease();
+    }
+  }
+
+  uarm.gripperDetach();
+}
+
