@@ -1,7 +1,12 @@
 # µArm Developer Quickstart
-The [µArm](https://kickstarter.com/projects/ufactory/uarm-put-a-miniature-industrial-robot-arm-on-your) is a great bit of hardware, but since shipping the software has let it down. The official software isn't readily usable to kickstart your own programs. This contains several demo programs and the official firmware so you can immediately start your project.
+The [µArm](https://kickstarter.com/projects/ufactory/uarm-put-a-miniature-industrial-robot-arm-on-your) is a great bit of hardware, but since shipping the software has let it down. The official software isn't readily usable to kickstart your own programs. This Quickstart contains several ready-to-hack programs that will get you started immediately.
 
 This is an unofficial collection of software, intended for **experienced, cautious hackers**. µArms are easy to break by misuse of the servos and the current firmware doesn't do much to prevent such harm.
+
+## Solving the Tower Of Hanoi
+![Tower Of Hanoi in Progress!](http://r.46b.it/preview.jpg)
+
+This used `./bin/hanoi` - details below.
 
 ## Setting up the µArm
 **Make sure your µArm servos at in the correct position shown in the construction guide. They will rapidly burn out if not.**
@@ -17,7 +22,7 @@ This is an unofficial collection of software, intended for **experienced, cautio
 ## Controlling your µArm
 I suggest placing the µArm on a flat, smooth surface. Clear the surrounding area of anything you don't want to get knocked over.
 
-Edit the serial port in `serial.h`. Run `make` to build the provided demo programs into `./bin/test`, `./bin/hanoi` and `./bin/uarmin`.
+Edit the serial port in each `.c` program. Run `make` to build the provided demo programs into `./bin/test`, `./bin/hanoi` and `./bin/uarmin`.
 
 ### ./bin/test
 This test program just moves your µArm about a bit.
