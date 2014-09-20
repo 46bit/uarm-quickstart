@@ -1,4 +1,3 @@
-#include <Servo.h>
 #include <EEPROM.h>
 #include <UF_uArm.h>
 #include <stdlib.h>
@@ -13,9 +12,9 @@ void setup()
   uarm.init();
 
   // @TODO: link against a UF_uArm library with setServoSpeed exposed.
-  //uarm.setServoSpeed(uarm.SERVO_R, 80);
-  //uarm.setServoSpeed(uarm.SERVO_L, 80);
-  //uarm.setServoSpeed(uarm.SERVO_ROT, 80);
+  uarm.setServoSpeed(uarm.SERVO_R, 80);
+  uarm.setServoSpeed(uarm.SERVO_L, 80);
+  uarm.setServoSpeed(uarm.SERVO_ROT, 80);
 }
 
 void loop()
